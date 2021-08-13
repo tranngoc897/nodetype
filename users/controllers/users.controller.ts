@@ -1,5 +1,6 @@
 import express from 'express';
 import usersService from '../services/users.service';
+// @ts-ignore
 import argon2 from 'argon2';
 import debug from 'debug';
 import { PatchUserDto } from '../dto/patch.user.dto';
