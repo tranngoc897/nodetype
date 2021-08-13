@@ -8,6 +8,7 @@ import usersService from '../../users/services/users.service';
 const jwtSecret: string = process.env.JWT_SECRET;
 
 class JwtMiddleware {
+
     verifyRefreshBodyField(
         req: express.Request,
         res: express.Response,

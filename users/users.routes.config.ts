@@ -29,9 +29,13 @@ export class UsersRoutes extends CommonRoutesConfig {
                 body('password')
                     .isLength({ min: 5 })
                     .withMessage('Must include password (5+ characters)'),
+
                 BodyValidationMiddleware.verifyBodyFieldsErrors,
                 UsersMiddleware.validateSameEmailDoesntExist,
                 UsersController.createUser
+        // Be sure to add BodyValidationMiddleware.verifyBodyFieldsErrors in every route after any body() lines
+        // that are present, otherwise none of them will have an effect.
+
             );
 
         this.app.param(`userId`, UsersMiddleware.extractUserId);

@@ -65,6 +65,9 @@ class UsersDao {
     async updateUserById(
         userId: string,
         userFields: PatchUserDto | PutUserDto
+    // Note that our own function will take userFields as either
+    // a PatchUserDto or a PutUserDto, using a TypeScript union type (signified by |):
+
     ) {
         const existingUser = await this.User.findOneAndUpdate(
             { _id: userId },
