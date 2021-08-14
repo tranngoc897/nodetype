@@ -22,13 +22,6 @@ class UsersController {
         res.status(201).send({ id: userId });
     }
 
-    async patch(req: express.Request, res: express.Response) {
-        if (req.body.password) {
-        }
-        log(await usersService.patchById(req.body.id, req.body));
-        res.status(204).send();
-    }
-
     async put(req: express.Request, res: express.Response) {
         log(await usersService.putById(req.body.id, req.body));
         res.status(204).send();
@@ -39,13 +32,6 @@ class UsersController {
         res.status(204).send();
     }
 
-    async updatePermissionFlags(req: express.Request, res: express.Response) {
-        const patchUserDto: PatchUserDto = {
-            permissionFlags: parseInt(req.params.permissionFlags),
-        };
-        log(await usersService.patchById(req.body.id, patchUserDto));
-        res.status(204).send();
-    }
 }
 
 export default new UsersController();

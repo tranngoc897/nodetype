@@ -9,10 +9,7 @@ const jwtSecret: string = process.env.JWT_SECRET;
 
 class JwtMiddleware {
 
-    verifyRefreshBodyField(
-        req: express.Request,
-        res: express.Response,
-        next: express.NextFunction
+    verifyRefreshBodyField(req: express.Request, res: express.Response, next: express.NextFunction
     ) {
         if (req.body && req.body.refreshToken) {
             return next();
@@ -23,10 +20,7 @@ class JwtMiddleware {
         }
     }
 
-    async validRefreshNeeded(
-        req: express.Request,
-        res: express.Response,
-        next: express.NextFunction
+    async validRefreshNeeded(req: express.Request, res: express.Response, next: express.NextFunction
     ) {
         const user: any = await usersService.getUserByEmailWithPassword(
             res.locals.jwt.email
@@ -50,10 +44,7 @@ class JwtMiddleware {
         }
     }
 
-    validJWTNeeded(
-        req: express.Request,
-        res: express.Response,
-        next: express.NextFunction
+    validJWTNeeded(req: express.Request, res: express.Response, next: express.NextFunction
     ) {
         if (req.headers['authorization']) {
             try {

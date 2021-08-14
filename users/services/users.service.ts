@@ -5,6 +5,7 @@ import { PutUserDto } from '../dto/put.user.dto';
 import { PatchUserDto } from '../dto/patch.user.dto';
 
 class UsersService implements CRUD {
+
     async create(resource: CreateUserDto) {
         return UsersDao.addUser(resource);
     }
